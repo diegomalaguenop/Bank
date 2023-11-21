@@ -1,0 +1,37 @@
+@model string // Modelo para el nombre del usuario
+
+@{
+    ViewData["Title"] = "Home Page";
+    string userName = Model; // Obtener el nombre de usuario del modelo
+    decimal currentAmount = 1000.00M; // Monto actual simulado, deberías obtenerlo de tu lógica
+    var transactions = new List<Bank.Models.Transaccion>(); // Lista simulada de transacciones, reemplázala con tu lógica
+}
+
+<h2>Bienvenido, @userName</h2>
+<p>Monto actual en la cuenta: @currentAmount</p>
+
+<div>
+    <h3>Depositar/Retirar</h3>
+    <!-- Resto de tu formulario para depositar o retirar -->
+</div>
+
+<hr />
+
+<h3>Historial de Transacciones</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Monto</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var transaccion in transactions)
+        {
+            <tr>
+                <td>@transaccion.Monto</td>
+                <td>@transaccion.CreatedAt</td>
+            </tr>
+        }
+    </tbody>
+</table>

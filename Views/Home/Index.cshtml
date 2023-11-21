@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4 text-left">Bank</h1>
+</div>
+
+<div class="d-flex">
+
+<div class="col-md-6">
+    <form method="POST" asp-controller="Usuario" asp-action="ProcesaRegistro" class="my-4 p-3 bg-light rounded">
+        <!-- Resto del contenido del formulario de registro -->
+        @await Html.PartialAsync("Registro")
+    </form>
+</div>
+
+
+<div class="col-md-6">
+    <form method="POST" asp-controller="Usuario" asp-action="ProcesaLogin" class="my-4 p-3 bg-light rounded">
+        <!-- Resto del contenido del formulario de inicio de sesión -->
+        @await Html.PartialAsync("Login")
+    </form>
+</div>
+</div>
